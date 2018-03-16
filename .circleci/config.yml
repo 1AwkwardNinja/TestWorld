@@ -15,6 +15,10 @@ jobs:
 
     working_directory: ~/repo
 
+    dependencies:
+      override:
+        - run: npm install chimp
+
     steps:
       - checkout
 
@@ -33,8 +37,7 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
         
       # run tests!
-      - run: npm install chimp
-      - run: npm test
+      #- run: npm test
       
     test:
       override:
