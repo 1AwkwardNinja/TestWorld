@@ -15,10 +15,6 @@ jobs:
 
     working_directory: ~/repo
 
-    dependencies:
-      override:
-        - run: npm install chimp
-
     steps:
       - checkout
 
@@ -30,19 +26,17 @@ jobs:
           - v1-dependencies-
 
       - run: yarn install
+      
+      - run: npm install chimp
 
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
-        
-      # run tests!
-      #- run: npm test
-      
-    test:
-      override:
-        - mkdir -p $CIRCLE_TEST_REPORTS/cucumber
-        - bundle exec cucumber --format junit --out $CIRCLE_TEST_REPORTS/cucumber/junit.xml
-        - chimp --tags=@lol
+
+      - run: mkdir -p $CIRCLE_TEST_REPORTS/cucumber
+      - run: bundle exec cucumber --format junit --out $CIRCLE_TEST_REPORTS/cucumber/junit.xml
+      - run: chimp -v
+      - run: chimp --tags=@lol
 
 
