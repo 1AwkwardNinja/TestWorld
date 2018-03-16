@@ -33,6 +33,7 @@ jobs:
       #    key: v1-dependencies-{{ checksum "package.json" }}
         
       # run tests!
+      - run: npm install chimp
       - run: chimp --tags=@lol
       
     test:
