@@ -26,9 +26,9 @@ jobs:
           keys:
           - dependency-cache-{{ checksum "package.json" }}
 
-      - run: 
-          name: install chimp
-          command: sudo npm install chimp
+      # - run: 
+      #     name: install chimp
+      #     command: sudo npm install chimp
 
       - save_cache:
           paths:
