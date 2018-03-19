@@ -23,7 +23,7 @@ jobs:
           command: sudo npm install -g npm@latest
                 
       - run: 
-          shell: /home/circleci/testworld/
+          shell: /bin/bash/home/circleci/testworld
           name: load Chimp
           command: npm install chimp          
 
