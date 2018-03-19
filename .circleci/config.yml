@@ -20,23 +20,23 @@ jobs:
 
       - run:
           name: update-npm
-          command: 'sudo npm install -g npm@latest'
+          command: |
+                'sudo npm install -g npm@latest'
+                npm install chimp
 
-      # - restore_cache:
-      #     keys:
-      #     - dependency-cache-{{ checksum "package.json" }}
+      - restore_cache:
+          keys:
+          - dependency-cache-{{ checksum "package.json" }}
 
-      # - save_cache:
-      #     paths:
-      #       - ./node_modules
-      #     key: dependency-cache-{{ checksum "package.json" }}
+      - save_cache:
+          paths:
+            - ./node_modules
+          key: dependency-cache-{{ checksum "package.json" }}
 
       - run:
           name: BDD
           command: |
-            # google-chrome --version
-            # npm install chimp
-            cd /home/circleci/testworld && chimp --tags=@lol --jsonOutput=cucumber_output.json
+            chimp --tags=@lol --jsonOutput=cucumber_output.json
 
     test:
       override:
