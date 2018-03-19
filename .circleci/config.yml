@@ -23,7 +23,7 @@ jobs:
           name: update-npm
           command: sudo npm install -g npm@latest
                 
-      -run: 
+      - run: 
           name: load Chimp
           command: sudo npm install chimp -g            
 
