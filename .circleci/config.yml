@@ -32,7 +32,7 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
-      - run: npm install chimp -g
+      - run: npm install chimp
 
       - run: chimp --tags=@lol
 
