@@ -22,22 +22,22 @@ jobs:
           name: update-npm
           command: 'sudo npm install -g npm@latest'
 
-      - restore_cache:
-          keys:
-          - dependency-cache-{{ checksum "package.json" }}
+      # - restore_cache:
+      #     keys:
+      #     - dependency-cache-{{ checksum "package.json" }}
 
-      # - run: 
-      #     name: install chimp
-      #     command: sudo npm install chimp
+      - run: 
+          name: install chimp
+          command: 'npm install chimp'
 
-      - save_cache:
-          paths:
-            - ./node_modules
-          key: dependency-cache-{{ checksum "package.json" }}
+      # - save_cache:
+      #     paths:
+      #       - ./node_modules
+      #     key: dependency-cache-{{ checksum "package.json" }}
 
       - run:
           name: BDD
-          command: chimp --tags=@lol
+          command: 'chimp --tags=@lol'
 
     test:
       override:
