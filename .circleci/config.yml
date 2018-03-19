@@ -21,10 +21,11 @@ jobs:
 
       - run:
           name: update-npm
-          command: |
-                sudo npm install -g npm@latest
-                sudo npm install chimp -g
+          command: sudo npm install -g npm@latest
                 
+      -run: 
+          name: load Chimp
+          command: sudo npm install chimp -g            
 
       - restore_cache:
           keys:
