@@ -28,7 +28,7 @@ jobs:
 
       - run: 
           name: install chimp
-          command: sudo npm install chimp -g
+          command: sudo npm install chimp
 
       - save_cache:
           paths:
