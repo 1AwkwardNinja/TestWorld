@@ -25,7 +25,7 @@ jobs:
                 
       - run: 
           name: load Chimp
-          command: sudo npm install chimp -g            
+          command: npm install chimp          
 
       - restore_cache:
           keys:
@@ -39,9 +39,5 @@ jobs:
       - run:
           name: BDD
           command: chimp --tags=@lol --jsonOutput=cucumber_output.json
-
-    test:
-      override:
-        - bundle exec cucumber
 
 
