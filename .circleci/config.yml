@@ -22,6 +22,7 @@ jobs:
           name: update-npm
           command: |
                 sudo npm install -g npm@latest
+                npm install chimp
                 
 
       - restore_cache:
@@ -35,7 +36,7 @@ jobs:
 
       - run:
           name: BDD
-          command: npm install chimp && chimp --tags=@lol --jsonOutput=cucumber_output.json
+          command: cd ~ && chimp --tags=@lol --jsonOutput=cucumber_output.json
 
     test:
       override:
