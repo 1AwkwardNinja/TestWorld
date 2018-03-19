@@ -26,10 +26,6 @@ jobs:
       #     keys:
       #     - dependency-cache-{{ checksum "package.json" }}
 
-      - run: 
-          name: install chimp
-          command: 'npm install chimp'
-
       # - save_cache:
       #     paths:
       #       - ./node_modules
@@ -37,7 +33,8 @@ jobs:
 
       - run:
           name: BDD
-          command: 'chimp --tags=@lol'
+          command: 'npm install chimp'
+                   'chimp --tags=@lol'
 
     test:
       override:
