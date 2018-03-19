@@ -23,7 +23,7 @@ jobs:
           name: update-npm
           command: |
                 sudo npm install -g npm@latest
-                npm install chimp -g
+                sudo npm install chimp -g
                 
 
       - restore_cache:
