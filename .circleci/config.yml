@@ -36,8 +36,7 @@ jobs:
           command: |
             # google-chrome --version
             # npm install chimp
-            cd /home/circleci/testworld
-            # chimp --jsonOutput=cucumber_output.json
+            cd /home/circleci/testworld && chimp --tags=@lol --jsonOutput=cucumber_output.json
 
     test:
       override:
