@@ -35,8 +35,8 @@ jobs:
           name: BDD
           command: |
             google-chrome --version
-            cd /home/circleci/testworld
             npm install chimp
+            cd /home/circleci/testworld
             chimp --jsonOutput=cucumber_output.json
 
     test:
