@@ -34,6 +34,7 @@ jobs:
       - run:
           name: BDD
           command: |
+            google-chrome --version
             npm install chimp
             chimp --jsonOutput=cucumber_output.json
 
