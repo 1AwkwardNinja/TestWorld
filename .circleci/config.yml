@@ -13,32 +13,34 @@ jobs:
       # CircleCI maintains a library of pre-built images
       # documented at https://circleci.com/docs/2.0/circleci-images/
 
-    working_directory: ~/repo
+    working_directory: ~/testworld
 
     steps:
       - checkout
 
-      # Download and cache dependencies
+      - run:
+          name: update-npm
+          command: 'sudo npm install -g npm@latest'
+
       - restore_cache:
           keys:
-          - v1-dependencies-{{ checksum "package.json" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
+          - dependency-cache-{{ checksum "package.json" }}
 
-      - run: npm install
+      - run: 
+          name: install chimp
+          command: sudo npm install chimp -g
 
       - save_cache:
           paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
+            - ./node_modules
+          key: dependency-cache-{{ checksum "package.json" }}
 
-      - run: npm install chimp
-
-      - run: chimp --tags=@lol
+      - run:
+          name: BDD
+          command: chimp --tags=@lol
 
     test:
       override:
-        - mkdir -p $CIRCLE_TEST_REPORTS/cucumber
-        - bundle exec cucumber --format junit --out $CIRCLE_TEST_REPORTS/cucumber/junit.xml
+        - bundle exec cucumber
 
 
