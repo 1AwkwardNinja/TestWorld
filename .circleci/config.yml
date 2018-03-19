@@ -25,7 +25,7 @@ jobs:
       - run: 
           shell: /home/circleci/testworld
           name: load Chimp
-          command: npm install chimp          
+          command: sudo npm install chimp          
 
       - restore_cache:
           keys:
@@ -39,6 +39,6 @@ jobs:
       - run:
           shell: /home/circleci/testworld/
           name: BDD
-          command: chimp --tags=@lol --jsonOutput=cucumber_output.json
+          command: sudo chimp --tags=@lol --jsonOutput=cucumber_output.json
 
 
