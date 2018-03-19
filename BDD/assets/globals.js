@@ -8,7 +8,7 @@ global.UI_ANIMATION_TIMEOUT = 500;
 
 // Routes
 global.ROUTES = {
-  ROOT: 'file:///Users/grant/repos/testWorld/index.html',
+  ROOT: 'file:///Users/grant/repos/testWorld1/index.html',
   NAV: {
     CONTENT: '/edit',
     MEDIA: '/#',
