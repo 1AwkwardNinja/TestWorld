@@ -35,7 +35,9 @@ jobs:
 
       - run:
           name: BDD
-          command: chimp --tags=@lol --jsonOutput=cucumber_output.json | echo $PATH
+          command: 
+          # chimp --tags=@lol --jsonOutput=cucumber_output.json | 
+          echo $PATH
 
     test:
       override:
