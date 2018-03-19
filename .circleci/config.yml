@@ -33,8 +33,9 @@ jobs:
 
       - run:
           name: BDD
-          command: npm install chimp
-                   chimp --tags=@lol
+          command: |
+            npm install chimp
+            chimp --tags=@lol
 
     test:
       override:
