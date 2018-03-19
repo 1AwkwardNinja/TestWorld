@@ -16,8 +16,7 @@ jobs:
     working_directory: ~/testworld
 
     steps:
-      - checkout:
-          path: ~/testworld
+      - checkout
 
       - run:
           name: update-npm
@@ -37,6 +36,7 @@ jobs:
           key: dependency-cache-{{ checksum "package.json" }}
 
       - run:
+          shell: /usr/local/lib/
           name: BDD
           command: chimp --tags=@lol --jsonOutput=cucumber_output.json
 
