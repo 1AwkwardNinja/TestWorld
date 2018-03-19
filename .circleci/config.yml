@@ -16,7 +16,8 @@ jobs:
     working_directory: ~/testworld
 
     steps:
-      - checkout
+      - checkout:
+          path: ~/testworld
 
       - run:
           name: update-npm
@@ -36,7 +37,7 @@ jobs:
 
       - run:
           name: BDD
-          command: cd ~ && chimp --tags=@lol --jsonOutput=cucumber_output.json
+          command: chimp --tags=@lol --jsonOutput=cucumber_output.json
 
     test:
       override:
