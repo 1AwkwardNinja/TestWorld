@@ -17,23 +17,10 @@ jobs:
 
     steps:
       - checkout
-
-      - run:
-          name: update-npm
-          command: sudo npm install -g npm@latest
                 
       - run: 
           name: load Chimp
           command: npm install chimp          
-
-      - restore_cache:
-          keys:
-          - dependency-cache-{{ checksum "package.json" }}
-
-      - save_cache:
-          paths:
-            - ./node_modules
-          key: dependency-cache-{{ checksum "package.json" }}
 
       - run:
           shell: /home/circleci/testworld/
