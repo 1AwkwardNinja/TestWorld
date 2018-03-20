@@ -23,7 +23,6 @@ jobs:
           command: npm install chimp          
 
       - run:
-          shell: /home/circleci/testworld/
           name: BDD
           # command: chimp --tags=@lol --jsonOutput=cucumber_output.json
           command: chimp -v
