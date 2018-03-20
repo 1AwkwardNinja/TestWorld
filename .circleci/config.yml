@@ -24,6 +24,7 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       - run:
+          name: test chimp
           command: sudo chimp -v install:
             pw: /home/circleci/testWorld
 
