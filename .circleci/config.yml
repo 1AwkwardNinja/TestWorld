@@ -18,8 +18,6 @@ jobs:
     steps:
       - checkout
 
-      - shell: /home/circleci/testworld
-
       - run:
           name: update-npm
           command: sudo npm install -g npm@latest
@@ -40,8 +38,9 @@ jobs:
           key: dependency-cache-{{ checksum "package.json" }}
 
       - run:
-          shell: /home/circleci/testworld/
           name: BDD
-          command: sudo chimp --tags=@lol --jsonOutput=cucumber_output.json
+          shell: /home/circleci/testworld
+          # command: sudo chimp --tags=@lol --jsonOutput=cucumber_output.json
+          command: chimp -v
 
 
