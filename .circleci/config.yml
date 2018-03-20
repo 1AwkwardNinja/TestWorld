@@ -6,7 +6,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:9-browsers
+      - image: circleci/node:latest-browsers
 
     working_directory: ~/testWorld
 
@@ -31,6 +31,6 @@ jobs:
       - run:
           name: chimp test
           shell: /home/circleci/testWorld
-          command: sudo npm install -g chimp && chimp -v
+          command: sudo chmod +x npm install -g chimp && chimp -v
 
 
