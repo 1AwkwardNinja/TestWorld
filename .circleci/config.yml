@@ -8,7 +8,7 @@ jobs:
     docker:
       - image: circleci/node:9-browsers
 
-    working_directory: ~/testWorld
+    working_directory: /bin/bash
 
     steps:
       - checkout
@@ -31,7 +31,7 @@ jobs:
       - run:
           name: chimp test
           # shell: /home/circleci/testWorld
-          working_directory: ~/testWorld
+          # working_directory: ~/testWorld
           command: npm install chimp && chimp -v
 
 
