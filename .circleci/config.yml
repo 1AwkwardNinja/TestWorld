@@ -18,7 +18,10 @@ jobs:
     steps:
       - checkout
                 
-      - pre: npm install chimp
+      - run: 
+          name: chimp install
+          shell: /home/circleci/testworld/
+          command: npm install chimp
 
       - run:
           name: BDD
