@@ -21,12 +21,10 @@ jobs:
       - run:
           name: update-npm
           command: sudo npm install -g npm@latest
-
-      - run: chimp -v
                 
       - run: 
           name: load Chimp
-          command: sudo npm install chimp          
+          command: npm install chimp          
 
       - restore_cache:
           keys:
@@ -38,9 +36,9 @@ jobs:
           key: dependency-cache-{{ checksum "package.json" }}
 
       - run:
-          shell: /home/circleci/testworld
+          shell: /home/circleci/testworld/
           name: BDD
-          # command: sudo chimp --tags=@lol --jsonOutput=cucumber_output.json
+          # command: chimp --tags=@lol --jsonOutput=cucumber_output.json
           command: chimp -v
 
 
