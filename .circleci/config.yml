@@ -18,29 +18,30 @@ jobs:
     steps:
       - checkout
 
+      - shell: /home/circleci/testworld
+
       - run:
           name: update-npm
           command: sudo npm install -g npm@latest
 
       - run: chimp -v
                 
-      # - run: 
-      #     shell: /home/circleci/testworld
-      #     name: load Chimp
-      #     command: sudo npm install chimp          
+      - run: 
+          name: load Chimp
+          command: sudo npm install chimp          
 
-      # - restore_cache:
-      #     keys:
-      #     - dependency-cache-{{ checksum "package.json" }}
+      - restore_cache:
+          keys:
+          - dependency-cache-{{ checksum "package.json" }}
 
-      # - save_cache:
-      #     paths:
-      #       - ./node_modules
-      #     key: dependency-cache-{{ checksum "package.json" }}
+      - save_cache:
+          paths:
+            - ./node_modules
+          key: dependency-cache-{{ checksum "package.json" }}
 
-      # - run:
-      #     shell: /home/circleci/testworld/
-      #     name: BDD
-      #     command: sudo chimp --tags=@lol --jsonOutput=cucumber_output.json
+      - run:
+          shell: /home/circleci/testworld/
+          name: BDD
+          command: sudo chimp --tags=@lol --jsonOutput=cucumber_output.json
 
 
