@@ -18,7 +18,7 @@ jobs:
           - v1-dependencies-{{ checksum "package.json" }}
 
       - run: npm install
-      #  && npm install chimp && chimp -v
+      - run: npm install chimp
 
       - save_cache:
           paths: node_modules
@@ -26,10 +26,10 @@ jobs:
 
       - run:
           name: npm test
-          command: npm test
+          command: npm -v
 
       - run:
-          name: test chimp
+          name: chimp test
           command: chimp -v
 
 
