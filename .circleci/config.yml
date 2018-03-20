@@ -23,7 +23,8 @@ jobs:
           paths: node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
-      - sudo chimp -v install:
-        pw: /home/circleci/testWorld
+      - run:
+          command: sudo chimp -v install:
+            pw: /home/circleci/testWorld
 
 
