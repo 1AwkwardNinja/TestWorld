@@ -21,6 +21,8 @@ jobs:
       - run:
           name: update-npm
           command: sudo npm install -g npm@latest
+
+      - run: chimp -v
                 
       # - run: 
       #     shell: /home/circleci/testworld
