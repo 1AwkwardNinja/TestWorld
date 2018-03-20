@@ -17,14 +17,15 @@ jobs:
           keys:
           - v1-dependencies-{{ checksum "package.json" }}
 
-      - run: npm install && npm install chimp && chimp -v
+      - run: npm install
+      #  && npm install chimp && chimp -v
 
       - save_cache:
           paths: node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
-      # - run:
-      #     name: test chimp
-      #     command: chimp -v
+      - run:
+          name: test chimp
+          command: apt-get install -y chimp && chimp -v
 
 
