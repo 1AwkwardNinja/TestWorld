@@ -24,12 +24,12 @@ jobs:
       #     paths: node_modules
       #     key: v1-dependencies-{{ checksum "package.json" }}
 
-      - run:
-          name: npm test
-          command: npm -v
+      # - run:
+      #     name: npm test
+      #     command: npm -v
 
       - run:
           name: chimp test
-          command: chimp -v
+          command: npm install chimp | chimp -v
 
 
