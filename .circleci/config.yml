@@ -13,16 +13,16 @@ jobs:
     steps:
       - checkout
      
-      - restore_cache:
-          keys:
-          - v1-dependencies-{{ checksum "package.json" }}
+      # - restore_cache:
+      #     keys:
+      #     - v1-dependencies-{{ checksum "package.json" }}
 
-      - run: npm install
-      - run: npm install chimp
+      # - run: npm install
+      # - run: npm install chimp
 
-      - save_cache:
-          paths: node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
+      # - save_cache:
+      #     paths: node_modules
+      #     key: v1-dependencies-{{ checksum "package.json" }}
 
       - run:
           name: npm test
