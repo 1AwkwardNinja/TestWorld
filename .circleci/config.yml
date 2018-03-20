@@ -31,6 +31,6 @@ jobs:
       - run:
           name: chimp test
           shell: /home/circleci/testWorld
-          command: sudo chmod +x npm install -g chimp && chimp -v
+          command: sudo chmod +x chimp && npm install -g chimp && chimp -v
 
 
