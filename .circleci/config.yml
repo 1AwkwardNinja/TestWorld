@@ -6,7 +6,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:latest-browsers
+      - image: node:7.4.0-browsers
 
     working_directory: ~/testWorld
 
@@ -25,7 +25,11 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       - run:
+          name: npm test
+          command: npm test
+
+      - run:
           name: test chimp
-          command: apt-get install -y chimp && chimp -v
+          command: chimp -v
 
 
