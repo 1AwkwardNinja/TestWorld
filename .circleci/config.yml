@@ -16,13 +16,11 @@ jobs:
      - restore_cache:
           keys:
           - v1-dependencies-{{ checksum "package.json" }}
-          - v1-dependencies
 
       - run: npm install && npm install chimp
 
       - save_cache:
-          paths:
-            - node_modules
+          paths: node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
       - run: chimp -v
