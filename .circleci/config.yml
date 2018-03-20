@@ -13,19 +13,23 @@ jobs:
       # CircleCI maintains a library of pre-built images
       # documented at https://circleci.com/docs/2.0/circleci-images/
 
-    working_directory: ~/testworld
+    # working_directory: ~/testworld
 
     steps:
       - checkout
-                
-      - run: 
-          name: chimp install
-          shell: /home/circleci/testworld/
-          command: sudo npm install chimp && sudo chimp -v
+     
+     - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          - v1-dependencies-
 
-      # - run:
-          # name: test chimp
-          # command: chimp --tags=@lol --jsonOutput=cucumber_output.json
-          # command: sudo chimp -v
+      - run: npm install && npm install chimp
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+          
+      - run: chimp -v
 
 
