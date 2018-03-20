@@ -30,6 +30,8 @@ jobs:
 
       - run:
           name: chimp test
-          command: npm install chimp | chimp -v
+          command: |
+                  npm install chimp
+                  chimp -v
 
 
