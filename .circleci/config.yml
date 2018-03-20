@@ -30,7 +30,8 @@ jobs:
 
       - run:
           name: chimp test
-          shell: /home/circleci/testWorld
+          # shell: /home/circleci/testWorld
+          working_directory: ~/testWorld
           command: npm install chimp && chimp -v
 
 
