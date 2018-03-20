@@ -38,8 +38,8 @@ jobs:
           key: dependency-cache-{{ checksum "package.json" }}
 
       - run:
-          name: BDD
           shell: /home/circleci/testworld
+          name: BDD
           # command: sudo chimp --tags=@lol --jsonOutput=cucumber_output.json
           command: chimp -v
 
