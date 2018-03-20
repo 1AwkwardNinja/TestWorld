@@ -17,15 +17,14 @@ jobs:
           keys:
           - v1-dependencies-{{ checksum "package.json" }}
 
-      - run: npm install && npm install chimp
+      - run: npm install && npm install chimp && chimp -v
 
       - save_cache:
           paths: node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
-      - run:
-          name: test chimp
-          command: sudo chimp -v install:
-            pw: /home/circleci/testWorld
+      # - run:
+      #     name: test chimp
+      #     command: chimp -v
 
 
