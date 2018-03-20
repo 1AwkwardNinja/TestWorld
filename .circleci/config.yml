@@ -31,7 +31,6 @@ jobs:
       - run:
           name: chimp test
           # shell: /home/circleci/testWorld
-          # command: npm install chimp && chimp -v
-          command: xvfb-run -a exec cucumber --format=pretty
+          command: npm install -g chimp && chimp -v
 
 
