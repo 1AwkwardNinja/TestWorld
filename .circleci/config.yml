@@ -18,9 +18,7 @@ jobs:
     steps:
       - checkout
                 
-      - run: 
-          name: load Chimp
-          command: npm install chimp          
+      - pre: npm install chimp
 
       - run:
           name: BDD
